@@ -1,5 +1,7 @@
 package com.gdam.estruturadados.vetor;
 
+import java.util.Arrays;
+
 public class Vetor {
 
     private String[] elementos;
@@ -11,6 +13,7 @@ public class Vetor {
     }
 
     public boolean adiciona(String elemento) {
+        aumentaCapacidade();
         if (this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
             this.tamanho++;
@@ -28,7 +31,7 @@ public class Vetor {
      * @return boolean
      */
     public boolean adiciona(int posicao, String elemento) {
-
+        aumentaCapacidade();
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida!");
         }
@@ -37,12 +40,19 @@ public class Vetor {
         for (int i = tamanho - 1; i >= posicao; i--) {
             this.elementos[i + 1] = this.elementos[i];
         }
-        // Atribui o indice a posição
+        // Atribui o índice a posição
         this.elementos[posicao] = elemento;
         // adiciona um ao tamanho
         this.tamanho++;
 
-        return false;
+        return true;
+    }
+
+    private void aumentaCapacidade() {
+        if (this.tamanho == this.elementos.length) {
+            String[] elementosNovos = Arrays.copyOf(elementos, elementos.length * 2);
+            this.elementos = elementosNovos;
+        }
     }
 
     public int tamanho() {
