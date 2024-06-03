@@ -19,6 +19,32 @@ public class Vetor {
         return false;
     }
 
+    /**
+     * Adiciona um elemento em qualquer posição do vetor com base na posição
+     * recebida
+     * 
+     * @param posicao  recebe a posição no vetor a ser preenchida
+     * @param elemento recebe o elemento que ocupara a posição
+     * @return boolean
+     */
+    public boolean adiciona(int posicao, String elemento) {
+
+        if (!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição inválida!");
+        }
+
+        // Move todos os elementos
+        for (int i = tamanho - 1; i >= posicao; i--) {
+            this.elementos[i + 1] = this.elementos[i];
+        }
+        // Atribui o indice a posição
+        this.elementos[posicao] = elemento;
+        // adiciona um ao tamanho
+        this.tamanho++;
+
+        return false;
+    }
+
     public int tamanho() {
         return this.tamanho;
     }
@@ -28,6 +54,15 @@ public class Vetor {
             throw new IllegalArgumentException("Posição inválida!");
         }
         return this.elementos[posicao];
+    }
+
+    public int busca(String elemento) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.elementos[i].equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
