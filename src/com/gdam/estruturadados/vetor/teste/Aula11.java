@@ -14,7 +14,17 @@ public class Aula11 {
 
         System.out.println(vetor);
 
-        vetor.remove("B");
+        vetor.limpar();
+
+        System.out.println(vetor);
+
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        System.out.println(vetor);
+
+        vetor.limpar();
 
         System.out.println(vetor);
 

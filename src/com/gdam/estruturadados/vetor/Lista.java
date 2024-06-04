@@ -57,6 +57,13 @@ public class Lista<T> {
         this.tamanho--;
     }
 
+    public void limpar() {
+        for (int i = 0; i < this.tamanho; i++) {
+            elementos[i] = null;
+        }
+        this.tamanho = 0;
+    }
+
     private void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
             T[] elementosNovos = Arrays.copyOf(elementos, elementos.length * 2);

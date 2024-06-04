@@ -8,38 +8,16 @@ public class Aula12 {
         ArrayList<String> arrayList = new ArrayList<>();
 
         arrayList.add("A");
+        arrayList.add("B");
         arrayList.add("C");
+        arrayList.add("D");
+        arrayList.add("E");
 
         System.out.println(arrayList);
 
-        arrayList.add(1, "B");
-
+        arrayList.clear();
+        
         System.out.println(arrayList);
 
-        boolean existe = arrayList.contains("A");
-        if (existe) {
-            System.out.println("O elemento existe no array");
-        } else {
-            System.out.println("O elemento não existe no array");
-        }
-
-        int pos = arrayList.indexOf("B");
-        if (pos > -1) {
-            System.out.println("Elemento existe na posição: " + pos);
-
-        } else {
-            System.out.println("Elemento não existe na posição: " + pos);
-        }
-
-        System.out.println(arrayList.get(2));
-
-        arrayList.remove("B");
-        arrayList.remove(0);
-
-        System.out.println(arrayList);
-
-        System.out.println(arrayList.size());
-
-        System.out.println(arrayList.lastIndexOf("C"));
     }
 }
