@@ -92,12 +92,16 @@ public class Lista<T> {
     }
 
     public boolean contem(T elemento) {
-        for (int i = 0; i < this.tamanho; i++) {
-            if (elemento.equals(this.elementos[i])) {
-                return true;
+        return busca(elemento) >= 0;
+    }
+
+    public int ultimaPosicao(T elemento) {
+        for (int i = this.tamanho - 1; i >= 0; i--) {
+            if (this.elementos[i].equals(elemento)) {
+                return i;
             }
         }
-        return false;
+        return -1;
     }
 
     @Override
