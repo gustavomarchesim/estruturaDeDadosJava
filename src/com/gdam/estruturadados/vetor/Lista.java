@@ -48,13 +48,9 @@ public class Lista<T> {
 
     public void remove(T elemento) {
         int posicao = busca(elemento);
-        if (!(posicao >= 0 && posicao < tamanho)) {
-            throw new IllegalArgumentException("Posição inválida!");
+        if (posicao > -1) {
+            this.remove(posicao);
         }
-        for (int i = posicao; i < this.tamanho - 1; i++) {
-            this.elementos[i] = this.elementos[i + 1];
-        }
-        this.tamanho--;
     }
 
     public void limpar() {
