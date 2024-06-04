@@ -6,9 +6,18 @@ public class Aula11 {
     public static void main(String[] args) {
 
         @SuppressWarnings({ "unchecked", "rawtypes" })
-        Lista<String> vetor = new Lista(1);
+        Lista<String> vetor = new Lista(2);
 
-        vetor.adiciona("Elemento");
+        vetor.adiciona("A");
+        vetor.adiciona("B");
+        vetor.adiciona("C");
+
+        System.out.println(vetor);
+
+        vetor.remove("B");
+
+        System.out.println(vetor);
+
     }
 
 }

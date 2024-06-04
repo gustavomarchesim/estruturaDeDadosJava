@@ -46,6 +46,17 @@ public class Lista<T> {
         this.tamanho--;
     }
 
+    public void remove(T elemento) {
+        int posicao = busca(elemento);
+        if (!(posicao >= 0 && posicao < tamanho)) {
+            throw new IllegalArgumentException("Posição inválida!");
+        }
+        for (int i = posicao; i < this.tamanho - 1; i++) {
+            this.elementos[i] = this.elementos[i + 1];
+        }
+        this.tamanho--;
+    }
+
     private void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
             T[] elementosNovos = Arrays.copyOf(elementos, elementos.length * 2);
@@ -71,6 +82,15 @@ public class Lista<T> {
             }
         }
         return -1;
+    }
+
+    public boolean contem(T elemento) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (elemento.equals(this.elementos[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
