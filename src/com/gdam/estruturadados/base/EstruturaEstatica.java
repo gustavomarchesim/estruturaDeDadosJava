@@ -61,7 +61,7 @@ public class EstruturaEstatica<T> {
         tamanho--;
     }
 
-    private void aumentaCapacidade() {
+    protected void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
             T[] elementosNovos = Arrays.copyOf(elementos, elementos.length * 2);
             this.elementos = elementosNovos;
