@@ -16,11 +16,14 @@ public class Fila<T> extends EstruturaEstatica<T> {
         super.adiciona(elemento);
     }
 
-    public void desenfileira() {
-        for (int i = 0; i < this.tamanho - 1; i++) {
-            this.elementos[i] = this.elementos[i + 1];
+    public T desenfileira() {
+        if (this.estaVazia()) {
+            return null;
         }
-        tamanho--;
+
+        T elementoRemovido = this.elementos[0];
+        this.remove(0);
+        return elementoRemovido;
     }
 
     public T espia() {
@@ -29,5 +32,4 @@ public class Fila<T> extends EstruturaEstatica<T> {
         }
         return this.elementos[0];
     }
-
 }

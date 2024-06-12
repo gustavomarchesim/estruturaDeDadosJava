@@ -9,7 +9,7 @@ public class EstruturaEstatica<T> {
 
     @SuppressWarnings("unchecked")
     public EstruturaEstatica(int capacidade) {
-        this.elementos = (T[]) new Object[capacidade];
+        this.elementos = (T[]) new Comparable[capacidade];
         this.tamanho = 0;
     }
 
@@ -32,8 +32,7 @@ public class EstruturaEstatica<T> {
     }
 
     protected boolean adiciona(int posicao, T elemento) {
-
-        if (!(posicao >= 0 && posicao < tamanho)) {
+        if (!(posicao >= 0 && posicao <= tamanho)) { // Permite posicao == tamanho
             throw new IllegalArgumentException("Posição inválida!");
         }
 
@@ -58,7 +57,7 @@ public class EstruturaEstatica<T> {
         for (int i = posicao; i < tamanho - 1; i++) {
             elementos[i] = elementos[i + 1];
         }
-        tamanho--;
+        elementos[--tamanho] = null; // Evita memory leak
     }
 
     protected void aumentaCapacidade() {
@@ -70,7 +69,6 @@ public class EstruturaEstatica<T> {
 
     @Override
     public String toString() {
-
         StringBuilder s = new StringBuilder();
         s.append("[");
 
