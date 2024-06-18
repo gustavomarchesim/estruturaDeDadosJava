@@ -6,7 +6,7 @@ public class Exer01 {
     Documento documento;
 
     public static void main(String[] args) {
-        FilaComPrioridade<Documento> fila = new FilaComPrioridade<>(10);
+        FilaComPrioridade<Documento> fila = new FilaComPrioridade<>();
 
         criaDocumentos(5, fila);
 
