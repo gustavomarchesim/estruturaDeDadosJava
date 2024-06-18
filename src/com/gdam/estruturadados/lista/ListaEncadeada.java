@@ -40,7 +40,7 @@ public class ListaEncadeada<T> {
         }
         builder.append(atual.getElemento()).append("]");
 
-        /*
+        /*f
          * builder.append(atual.getElemento()).append(",");
          * while (atual.getProximo() != null) {
          * atual = atual.getProximo();
