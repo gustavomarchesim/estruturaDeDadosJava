@@ -22,6 +22,37 @@ public class ListaEncadeada<T> {
 
     }
 
+    public void adicionaInicio(T elemento) {
+        if (this.tamanho == 0) {
+            No<T> novoNo = new No<T>(elemento);
+            this.inicio = novoNo;
+            this.ultimo = novoNo;
+        } else {
+            No<T> novoNo = new No<T>(elemento, this.inicio);
+            this.inicio = novoNo;
+        }
+        this.tamanho++;
+    }
+
+    public void adiciona(int posicao, T elemento) {
+
+        if (posicao < 0 || posicao > this.tamanho) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+
+        if (this.tamanho == 0) {
+            this.adicionaInicio(elemento);
+        } else if (posicao == this.tamanho) {
+            this.adiciona(elemento);
+        } else {
+            No<T> noAnterior = this.buscaNo(posicao);
+            No<T> proximoNo = noAnterior.getProximo();
+            No<T> novoNo = new No<T>(elemento, proximoNo);
+            noAnterior.setProximo(novoNo);
+            this.tamanho++;
+        }
+    }
+
     public int getTamanho() {
         return this.tamanho;
     }
@@ -41,7 +72,7 @@ public class ListaEncadeada<T> {
 
     }
 
-    public No<T> buscaPorPosicao(int posicao) {
+    public No<T> buscaNo(int posicao) {
 
         if (!(posicao >= 0 && posicao <= this.tamanho)) {
             throw new IllegalArgumentException("Posição não existe");
@@ -54,8 +85,8 @@ public class ListaEncadeada<T> {
         return noAtual;
     }
 
-    public T buscaNo(int posicao) {
-        return this.buscaPorPosicao(posicao).getElemento();
+    public T buscaPorPosicao(int posicao) {
+        return this.buscaNo(posicao).getElemento();
     }
 
     public int busca(T elemento) {
