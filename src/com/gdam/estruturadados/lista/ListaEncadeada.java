@@ -8,6 +8,23 @@ public class ListaEncadeada<T> {
 
     private final int NAO_ENCONTRADO = -1;
 
+    public T removeInicio() {
+
+        if (this.tamanho == 0) {
+            throw new RuntimeException("Lista está vazia!");
+        }
+
+        T removido = this.inicio.getElemento();
+        this.inicio = this.inicio.getProximo();
+        this.tamanho--;
+
+        if (this.tamanho == 0) {
+            this.ultimo = null;
+        }
+
+        return removido;
+    }
+
     public void adiciona(T elemento) {
         No<T> celula = new No<T>(elemento);
 
