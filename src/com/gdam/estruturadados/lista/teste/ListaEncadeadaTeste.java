@@ -7,7 +7,28 @@ public class ListaEncadeadaTeste {
         // testesIniciais();
         // adicionaNoInicio();
         // adicionaPorPosicao();
-        removeInicio();
+        // removeInicio();
+        removeFinal();
+    }
+
+    public static void removeFinal() {
+        ListaEncadeada<Integer> lista = new ListaEncadeada<>();
+
+        // lista.removeFinal();
+
+        lista.adiciona(1);
+        lista.adiciona(2);
+        lista.adiciona(3);
+
+        System.out.println("Elemento removido: " + lista.removeFinal());
+        System.out.println("Lista: " + lista);
+
+        System.out.println("Elemento removido: " + lista.removeFinal());
+        System.out.println("Lista: " + lista);
+
+        System.out.println("Elemento removido: " + lista.removeFinal());
+        System.out.println("Lista: " + lista);
+
     }
 
     public static void removeInicio() {
@@ -17,10 +38,14 @@ public class ListaEncadeadaTeste {
         lista.adiciona(2);
         lista.adiciona(3);
 
-        System.out.println(lista.removeInicio());
-        System.out.println(lista);
+        System.out.println("Elemento removido: " + lista.removeInicio());
+        System.out.println("Lista: " + lista);
 
-        lista.removeInicio();
+        System.out.println("Elemento removido: " + lista.removeInicio());
+        System.out.println("Lista: " + lista);
+
+        System.out.println("Elemento removido: " + lista.removeInicio());
+        System.out.println("Lista: " + lista);
     }
 
     public static void adicionaPorPosicao() {
